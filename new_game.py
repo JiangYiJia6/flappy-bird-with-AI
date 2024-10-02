@@ -45,7 +45,7 @@ class Bird:
 
     def move(self):
         self.tick_count += 1
-        d = self.vel * self.tick_count + 1.5 * self.tick_count ** 2
+        d = self.vel * self.tick_count + 0.5 * self.tick_count ** 2
 
         # Moving down
         if d >= 16:
@@ -215,3 +215,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def run(config_path):
+    config=neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction,
+                              neat.DefaultSpeciesSet, neat.DefaultStagnation,
+                                config_path)
+
+if __name__ == "__main__":
+    local_dir = os.path.dirname(__file__)
+    config_path = os.path.join(local_dir, "config-feedforward.txt")
